@@ -1,0 +1,44 @@
+@import'../../../styles.scss';
+
+.about-wrapper {
+  padding: 100px 10%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 60px 10%;
+  }
+
+  .section-label {
+    font-family: $font-mono;
+    color: $accent-color;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .highlight {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: $text-color;
+  }
+
+  p { color: $secondary-text-color; line-height: 1.8; }
+
+  .tech-info {
+    border-left: 1px solid $border-color;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .info-item span {
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      color: $secondary-text-color;
+    }
+    .info-item p { color: $accent-color; margin-top: 5px; }
+  }
+}

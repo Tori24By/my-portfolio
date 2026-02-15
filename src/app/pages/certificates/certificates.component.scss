@@ -1,0 +1,40 @@
+@import '../../../styles.scss';
+
+.certificates-section {
+  padding: 80px 10%;
+
+  .cert-list {
+    margin-top: 3rem;
+    border-top: 1px solid $border-color;
+  }
+
+  .cert-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 150px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $border-color;
+    transition: $transition-smooth;
+    align-items: center;
+
+    &:hover {
+      background: linear-gradient(90deg, rgba($accent-color, 0.05), transparent);
+      padding-left: 10px;
+      .cert-title { color: $accent-color; }
+    }
+
+    .cert-date { font-family: $font-mono; color: $secondary-text-color; font-size: 0.9rem; }
+    .cert-title { font-weight: 500; }
+    .cert-cat { 
+      font-family: $font-mono; 
+      font-size: 0.7rem; 
+      text-align: right;
+      color: $secondary-text-color;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      .cert-cat { text-align: left; }
+    }
+  }
+}

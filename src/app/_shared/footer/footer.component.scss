@@ -1,0 +1,36 @@
+footer {
+  padding: 60px 10% 40px;
+  background-color: #0d0d0d;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'JetBrains Mono', monospace;
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #d2c6c6;
+
+    @media (max-width: 768px) { flex-direction: column; gap: 30px; text-align: center; }
+  }
+
+  .status-col {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .status-dot {
+      width: 6px; height: 6px;
+      background: #00E5FF;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #00E5FF;
+      animation: pulse 2s infinite;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: 25px;
+    a { color: #ffffff; &:hover { color: #00E5FF; } }
+  }
+}
+@keyframes pulse { 50% { opacity: 0.4; } }

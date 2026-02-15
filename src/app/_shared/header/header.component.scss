@@ -1,0 +1,48 @@
+@import '../../../styles.scss';
+
+// Importar variáveis se necessário (@import 'src/styles';)
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  // Cor Deep Obsidian: Um cinza-escuro técnico que combina com o Sakanaction
+  background-color: rgba(18, 18, 18, 0.85); 
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0 10%;
+
+  .header-content {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-decoration: none;
+    .cursor { color: #00E5FF; animation: blink 1s infinite; }
+  }
+
+  nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+
+    li a {
+      color: #d2c6c6; // Sua $secondary-text-color
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 1px;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+
+      &.active, &:hover { color: #00E5FF; }
+    }
+  }
+}
+@keyframes blink { 50% { opacity: 0; } }

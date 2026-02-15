@@ -1,0 +1,45 @@
+@import '../../../styles.scss'; 
+
+.summary-wrapper {
+  padding: 0 10% 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.preview-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+
+  .header-preview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .label { font-family: 'JetBrains Mono'; color: #00E5FF; font-size: 0.8rem; }
+    a { color: #d2c6c6; font-size: 0.7rem; font-weight: bold; }
+  }
+
+  p { font-size: 1.1rem; max-width: 800px; }
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  .mini-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    h3 { font-size: 1rem; color: #ffffff; }
+    p { font-size: 0.8rem; color: #d2c6c6; }
+  }
+}
+
+.simple-list {
+  list-style: none;
+  li {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    span { color: #00E5FF; font-family: 'JetBrains Mono'; margin-right: 15px; }
+  }
+}
