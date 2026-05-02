@@ -20,9 +20,9 @@ footer {
     gap: 10px;
     .status-dot {
       width: 6px; height: 6px;
-      background: #00E5FF;
+      background: #39FF14;
       border-radius: 50%;
-      box-shadow: 0 0 8px #00E5FF;
+      box-shadow: 0 0 8px #39FF14;
       animation: pulse 2s infinite;
     }
   }
@@ -30,7 +30,7 @@ footer {
   .social-links {
     display: flex;
     gap: 25px;
-    a { color: #ffffff; &:hover { color: #00E5FF; } }
+    a { color: #ffffff; &:hover { color: #39FF14; } }
   }
 }
 @keyframes pulse { 50% { opacity: 0.4; } }
