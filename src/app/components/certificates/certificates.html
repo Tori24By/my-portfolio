@@ -5,7 +5,7 @@
 
     <div class="certificates-grid">
       @for (cert of certificates; track cert.title) {
-        <div class="cert-card">
+        <div class="cert-card" (click)="openCertificate(cert)">
           <div class="cert-header">
             <span class="cert-category">{{ cert.category | uppercase }}</span>
             @if (cert.hours) {
@@ -15,13 +15,55 @@
           <h3 class="cert-title">{{ cert.title }}</h3>
           <p class="cert-issuer">{{ cert.issuer }}</p>
           <p class="cert-date">{{ cert.issueDate }}</p>
-          @if (cert.credentialUrl) {
-            <a [href]="cert.credentialUrl" target="_blank" rel="noopener" class="cert-link">
-              Ver Credencial →
-            </a>
-          }
+          <span class="cert-view-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            Ver Certificado
+          </span>
         </div>
       }
     </div>
   </div>
 </section>
+
+@if (selectedCert) {
+  <div class="cert-modal-overlay" (click)="onOverlayClick($event)">
+    <div class="cert-modal">
+      <button class="cert-modal-close" (click)="closeCertificate()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div class="cert-modal-content">
+        <div class="cert-modal-image">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
+          <p>Imagem do certificado</p>
+        </div>
+
+        <div class="cert-modal-details">
+          <span class="cert-modal-category">{{ selectedCert.category | uppercase }}</span>
+          <h2 class="cert-modal-title">{{ selectedCert.title }}</h2>
+          <div class="cert-modal-info">
+            <div class="cert-modal-info-item">
+              <span class="cert-modal-label">Emissor</span>
+              <span class="cert-modal-value">{{ selectedCert.issuer }}</span>
+            </div>
+            <div class="cert-modal-info-item">
+              <span class="cert-modal-label">Data</span>
+              <span class="cert-modal-value">{{ selectedCert.issueDate }}</span>
+            </div>
+            @if (selectedCert.hours) {
+              <div class="cert-modal-info-item">
+                <span class="cert-modal-label">Carga Horária</span>
+                <span class="cert-modal-value">{{ selectedCert.hours }}h</span>
+              </div>
+            }
+          </div>
+          @if (selectedCert.credentialUrl) {
+            <a [href]="selectedCert.credentialUrl" target="_blank" rel="noopener" class="cert-modal-btn">
+              Ver Credencial Original
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+}
