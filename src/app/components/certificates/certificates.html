@@ -1,0 +1,27 @@
+<section class="certificates" id="certificates">
+  <div class="container">
+    <h2 class="section-title">Certificados</h2>
+    <p class="section-subtitle">Cursos e certificações que conquistei</p>
+
+    <div class="certificates-grid">
+      @for (cert of certificates; track cert.title) {
+        <div class="cert-card">
+          <div class="cert-header">
+            <span class="cert-category">{{ cert.category | uppercase }}</span>
+            @if (cert.hours) {
+              <span class="cert-hours">{{ cert.hours }}h</span>
+            }
+          </div>
+          <h3 class="cert-title">{{ cert.title }}</h3>
+          <p class="cert-issuer">{{ cert.issuer }}</p>
+          <p class="cert-date">{{ cert.issueDate }}</p>
+          @if (cert.credentialUrl) {
+            <a [href]="cert.credentialUrl" target="_blank" rel="noopener" class="cert-link">
+              Ver Credencial →
+            </a>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
