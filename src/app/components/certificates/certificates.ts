@@ -9,6 +9,8 @@ import { Certificate } from '../../models/certificate.model';
   styleUrl: './certificates.scss',
 })
 export class Certificates {
+  selectedCert: Certificate | null = null;
+
   certificates: Certificate[] = [
     {
       title: 'Angular: Desenvolvimento de Aplicações Web',
@@ -53,4 +55,20 @@ export class Certificates {
       hours: 15,
     },
   ];
+
+  openCertificate(cert: Certificate): void {
+    this.selectedCert = cert;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeCertificate(): void {
+    this.selectedCert = null;
+    document.body.style.overflow = '';
+  }
+
+  onOverlayClick(event: MouseEvent): void {
+    if ((event.target as HTMLElement).classList.contains('cert-modal-overlay')) {
+      this.closeCertificate();
+    }
+  }
 }
