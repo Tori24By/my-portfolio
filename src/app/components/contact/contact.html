@@ -1,0 +1,109 @@
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Vamos trabalhar juntos? Entre em contato!</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Vamos conversar</h3>
+        <p>
+          Estou disponível para novos projetos e oportunidades. Sinta-se à
+          vontade para entrar em contato!
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Email</span>
+              <a href="mailto:vitoriadelimaboin&#64;gmail.com">vitoriadelimaboin&#64;gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Localização</span>
+              <span>Brasil</span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://linkedin.com" target="_blank" rel="noopener">Conecte-se comigo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="formData.name"
+            required
+            placeholder="Seu nome completo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="formData.email"
+            required
+            placeholder="seu@email.com"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Assunto</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            [(ngModel)]="formData.subject"
+            required
+            placeholder="Assunto da mensagem"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea
+            id="message"
+            name="message"
+            [(ngModel)]="formData.message"
+            required
+            rows="5"
+            placeholder="Sua mensagem..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!contactForm.valid || isSubmitting">
+          {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
+        </button>
+
+        @if (submitSuccess) {
+          <p class="success-message">Mensagem enviada com sucesso!</p>
+        }
+        @if (submitError) {
+          <p class="error-message">Erro ao enviar. Tente novamente.</p>
+        }
+      </form>
+    </div>
+  </div>
+</section>

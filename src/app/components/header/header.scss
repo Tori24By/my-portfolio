@@ -1,0 +1,137 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.25rem 2rem;
+  transition: var(--transition);
+  background: transparent;
+
+  &.scrolled {
+    background: rgba(10, 46, 46, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 2rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.header-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-white);
+  }
+}
+
+.logo-accent {
+  color: var(--color-gold);
+  font-size: 2rem;
+}
+
+.logo-dot {
+  color: var(--color-gold);
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 400;
+  position: relative;
+  padding: 0.25rem 0;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-gold);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: var(--color-gold);
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  .bar {
+    width: 25px;
+    height: 2px;
+    background: var(--color-white);
+    transition: var(--transition);
+
+    &.open:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    &.open:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.open:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: var(--color-teal-dark);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+
+    &.nav-open {
+      right: 0;
+    }
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
+}
