@@ -11,11 +11,11 @@ import { Study } from '../../models/study.model';
 export class Studies {
   studies: Study[] = [
     {
-      topic: 'Angular Avançado',
+      topic: 'AWS Cloud Practitioner',
       description:
-        'Aprofundando conhecimentos em signals, standalone components, SSR e otimização de performance.',
-      category: 'frontend',
-      progress: 70,
+        'Estudando os fundamentos da computação em nuvem na AWS.',
+      category: 'cloud',
+      progress: 75,
     },
     {
       topic: 'Arquitetura de Microsserviços',
@@ -27,9 +27,9 @@ export class Studies {
     {
       topic: 'Azure Cloud Services',
       description:
-        'Preparação para certificação AZ-204, focando em Azure Functions, App Services e Azure DevOps.',
+        'Estudando os serviços da Microsoft Azure e suas aplicações em cloud computing.',
       category: 'cloud',
-      progress: 55,
+      progress: 25,
     },
     {
       topic: 'Power Platform Avançado',
@@ -39,16 +39,9 @@ export class Studies {
       progress: 60,
     },
     {
-      topic: 'Testes Automatizados',
+      topic: 'Java e Spring',
       description:
-        'Aprendendo Jest, Cypress e boas práticas de testes unitários, de integração e end-to-end.',
-      category: 'frontend',
-      progress: 35,
-    },
-    {
-      topic: 'Design Patterns com TypeScript',
-      description:
-        'Estudando padrões de projeto como Singleton, Observer, Strategy e Factory aplicados ao TypeScript.',
+        'Estudando Java e Spring: Realizando processamento em lote com Spring Batch pela Alura.',
       category: 'backend',
       progress: 50,
     },
