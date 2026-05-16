@@ -1,0 +1,27 @@
+<section class="posts" id="posts">
+  <div class="container">
+    <h2 class="section-title">Publicações</h2>
+    <p class="section-subtitle">Artigos e conteúdos que compartilhei com a comunidade</p>
+
+    <div class="posts-grid">
+      @for (post of posts; track post.title) {
+        <article class="post-card">
+          <div class="post-meta">
+            <span class="post-platform">{{ getPlatformIcon(post.platform) }} {{ post.platform }}</span>
+            <span class="post-date">{{ post.publishedAt }}</span>
+          </div>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-summary">{{ post.summary }}</p>
+          <div class="post-tags">
+            @for (tag of post.tags; track tag) {
+              <span class="post-tag">{{ tag }}</span>
+            }
+          </div>
+          <a [href]="post.url" target="_blank" rel="noopener" class="post-link">
+            Ler no {{ post.platform }} →
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

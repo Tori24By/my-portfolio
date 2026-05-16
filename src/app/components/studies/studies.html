@@ -1,0 +1,22 @@
+<section class="studies" id="studies">
+  <div class="container">
+    <h2 class="section-title">Estudando Agora</h2>
+    <p class="section-subtitle">Conteúdos e tecnologias que estou aprendendo</p>
+
+    <div class="studies-grid">
+      @for (study of studies; track study.topic) {
+        <div class="study-card">
+          <div class="study-header">
+            <span class="study-category">{{ study.category | uppercase }}</span>
+            <span class="study-progress-label">{{ study.progress }}%</span>
+          </div>
+          <h3 class="study-topic">{{ study.topic }}</h3>
+          <p class="study-description">{{ study.description }}</p>
+          <div class="study-progress-bar">
+            <div class="study-progress-fill" [style.width.%]="study.progress"></div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
