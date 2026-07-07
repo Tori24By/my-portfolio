@@ -13,7 +13,7 @@ export class Projects {
   projects: Project[] = [
     {
       id: 1,
-      images: ['https://github.com/user-attachments/assets/d9d93248-5182-4132-8e0b-9f1d0b8945df'],
+      images: ['https://github.com/user-attachments/assets/d9d93248-5182-4132-8e0b-9f1d0b8945df.jpg'],
       title: 'SisGESC',
       description:
         'Sistema ERP de Gestão Escolar Universitária.',
@@ -31,7 +31,7 @@ export class Projects {
     },
     {
       id: 2,
-      images: ['https://github.com/user-attachments/assets/98b05ef7-1640-4e87-b0b3-5f1b44ad9c86'],
+      images: ['https://github.com/user-attachments/assets/98b05ef7-1640-4e87-b0b3-5f1b44ad9c86.jpg'],
       title: 'Kingscape: A Fuga de Dante',
       description:
         'Jogo no estilo top-down desenvolvido como projeto acadêmico, inspirado na clássica literatura do Inferno de Dante.',
