@@ -13,7 +13,7 @@ export class Certificates {
 
   certificates: Certificate[] = [
     {
-      imageUrl: '../assets/images/cpa-10.png',
+      imageUrl: 'https://i.ibb.co/C3Y6XX6S/cpa-10.png',
       title: 'CPA-10',
       issuer: 'ANBIMA',
       issueDate: '09/02/2024 à 09/02/2029',
