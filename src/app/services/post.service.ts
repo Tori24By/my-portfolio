@@ -7,6 +7,6 @@ import { Post } from '../models/post.model';
 export class PostService {
   constructor(private http: HttpClient) {}
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>('http://localhost:8080/api/publicacoes');
+    return this.http.get<Post[]>('https://portfolio-api-cg4v.onrender.com/api/publicacoes');
   }
 }
