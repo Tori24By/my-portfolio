@@ -8,7 +8,7 @@ import { Project } from '../models/project.model';
 })
 export class ProjectService {
 
-  private apiUrl = 'http://localhost:8080/api/projetos';
+  private apiUrl = 'https://portfolio-api-cg4v.onrender.com/api/projetos';
 
   constructor(private http: HttpClient) { }
 

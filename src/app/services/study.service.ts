@@ -7,6 +7,6 @@ import { CurrentStudy } from '../models/study.model';
 export class StudyService {
   constructor(private http: HttpClient) {}
   getStudies(): Observable<CurrentStudy[]> {
-    return this.http.get<CurrentStudy[]>('http://localhost:8080/api/estudos');
+    return this.http.get<CurrentStudy[]>('https://portfolio-api-cg4v.onrender.com/api/estudos');
   }
 }

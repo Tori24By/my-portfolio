@@ -8,7 +8,7 @@ import { Certificate } from '../models/certificate.model';
 })
 export class CertificateService {
   
-  private apiUrl = 'http://localhost:8080/api/certificados';
+  private apiUrl = 'https://portfolio-api-cg4v.onrender.com/api/certificados';
 
   constructor(private http: HttpClient) { }
 

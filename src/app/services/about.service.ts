@@ -7,6 +7,6 @@ import { AboutMe } from '../models/about.model';
 export class AboutService {
   constructor(private http: HttpClient) {}
   getAboutMe(): Observable<AboutMe[]> {
-    return this.http.get<AboutMe[]>('http://localhost:8080/api/sobre-mim');
+    return this.http.get<AboutMe[]>('https://portfolio-api-cg4v.onrender.com/api/sobre-mim');
   }
 }

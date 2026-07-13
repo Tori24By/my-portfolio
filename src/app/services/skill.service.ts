@@ -7,6 +7,6 @@ import { SkillCategory } from '../models/skill.model';
 export class SkillService {
   constructor(private http: HttpClient) {}
   getSkills(): Observable<SkillCategory[]> {
-    return this.http.get<SkillCategory[]>('http://localhost:8080/api/habilidades');
+    return this.http.get<SkillCategory[]>('https://portfolio-api-cg4v.onrender.com/api/habilidades');
   }
 }
