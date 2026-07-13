@@ -1,7 +1,12 @@
 export interface Skill {
-  id?: number;
+  pk_skill?: number;
   name: string;
-  category: 'frontend' | 'backend' | 'database' | 'tools' | 'other';
-  level: number;
+  percentage: number;
   iconClass?: string;
+}
+
+export interface SkillCategory {
+  pk_category?: number;
+  name: string;
+  skills: Skill[];
 }

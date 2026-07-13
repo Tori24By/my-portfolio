@@ -1,10 +1,14 @@
+export interface PostTag {
+  pk_tag?: number;
+  tag_name: string;
+}
+
 export interface Post {
-  id?: number;
+  pk_post?: number;
+  platform: string;
   title: string;
-  summary: string;
-  platform: 'DIO' | 'dev.to' | 'Medium' | 'LinkedIn' | 'other';
-  url: string;
-  publishedAt: string;
-  tags: string[];
-  coverImageUrl?: string;
+  description: string;
+  publish_date: string;
+  url_link: string;
+  tags: PostTag[];
 }

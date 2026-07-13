@@ -1,9 +1,7 @@
-export interface Study {
-  id?: number;
-  topic: string;
+export interface CurrentStudy {
+  pk_study?: number;
+  category: string;
+  title: string;
   description: string;
-  category: 'frontend' | 'backend' | 'database' | 'cloud' | 'automation' | 'devops' | 'other';
-  progress: number;
-  resources?: string[];
-  startedAt?: string;
+  percentage_progress: number;
 }

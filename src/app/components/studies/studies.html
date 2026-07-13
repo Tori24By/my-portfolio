@@ -4,16 +4,16 @@
     <p class="section-subtitle">Conteúdos e tecnologias que estou aprendendo</p>
 
     <div class="studies-grid">
-      @for (study of studies; track study.topic) {
+      @for (study of studies; track study.pk_study) {
         <div class="study-card">
           <div class="study-header">
             <span class="study-category">{{ study.category | uppercase }}</span>
-            <span class="study-progress-label">{{ study.progress }}%</span>
+            <span class="study-progress-label">{{ study.percentage_progress }}%</span>
           </div>
-          <h3 class="study-topic">{{ study.topic }}</h3>
+          <h3 class="study-topic">{{ study.title }}</h3>
           <p class="study-description">{{ study.description }}</p>
           <div class="study-progress-bar">
-            <div class="study-progress-fill" [style.width.%]="study.progress"></div>
+            <div class="study-progress-fill" [style.width.%]="study.percentage_progress"></div>
           </div>
         </div>
       }

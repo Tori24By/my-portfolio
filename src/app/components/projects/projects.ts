@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Project } from '../../models/project.model';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,48 +8,30 @@ import { Project } from '../../models/project.model';
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
-export class Projects {
+export class Projects implements OnInit {
   selectedProject: Project | null = null;
+  
+  // Lista vazia que será preenchida pela API
+  projects: Project[] = [];
 
-  projects: Project[] = [
-    {
-      id: 1,
-      images: ['../assets/images/Modelagem_Estrela.drawio.png'],
-      title: 'SisGESC',
-      description:
-        'Sistema ERP de Gestão Escolar Universitária.',
-      longDescription:
-        'Sistema integrado de gestão educacional (ERP) projetado para automatizar processos administrativos, acadêmicos e pedagógicos. O desenvolvimento envolveu uma arquitetura robusta com mapeamento completo de processos e modelagem conceitual e lógica de banco de dados para garantir alta consistência e integridade das informações universitárias.',
-      technologies: ['MySQL', 'Databricks', 'Python', 'Aiven'],
-      category: 'ERP',
-      featured: true,
-      highlights: [
-        'Modelagem detalhada de banco de dados e diagramas de entidade-relacionamento (DER)',
-        'Gerenciamento modular de registros acadêmicos e turmas',
-        'Estrutura escalável voltada para automação de rotinas administrativas',
-        'Arquitetura modular para facilitar manutenção e expansão futura',
-      ],
-    },
-    {
-      id: 2,
-      images: ['../assets/images/kingscape_img.png'],
-      title: 'Kingscape: A Fuga de Dante',
-      description:
-        'Jogo no estilo top-down desenvolvido como projeto acadêmico, inspirado na clássica literatura do Inferno de Dante.',
-      longDescription:
-        'Jogo no estilo top-down desenvolvido como projeto acadêmico, inspirado na clássica literatura do Inferno de Dante. O projeto une uma narrativa criativa e satírica com foco em lógica de programação de jogos, desenvolvimento de eventos internos, movimentação de personagens e design de elementos visuais.',
-      technologies: ['Construct 3'],
-      category: 'Jogo Eletrônico Top-Down',
-      featured: true,
-      highlights: [
-        'Enredo adaptado de forma lúdica e conceitual',
-        'Mecânicas de exploração e movimentação top-down',
-        'Implementação completa de lógica de colisão e estados de jogo',
-      ],
-    },
-  ];
+  // Injetando o serviço
+  private projectService = inject(ProjectService);
 
+  ngOnInit(): void {
+    this.carregarProjetos();
+  }
 
+  carregarProjetos(): void {
+    this.projectService.getProjects().subscribe({
+      next: (dados) => {
+        this.projects = dados;
+        console.log("Projetos carregados da API!", dados);
+      },
+      error: (erro) => {
+        console.error("Erro ao carregar projetos", erro);
+      }
+    });
+  }
 
   openProject(project: Project): void {
     this.selectedProject = project;
