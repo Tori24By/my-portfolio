@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
-import { Study } from '../../models/study.model';
+import { CurrentStudy } from '../../models/study.model';
+import { StudyService } from '../../services/study.service';
 
 @Component({
   selector: 'app-studies',
@@ -8,42 +9,15 @@ import { Study } from '../../models/study.model';
   templateUrl: './studies.html',
   styleUrl: './studies.scss',
 })
-export class Studies {
-  studies: Study[] = [
-    {
-      topic: 'AWS Cloud Practitioner',
-      description:
-        'Estudando os fundamentos da computação em nuvem na AWS.',
-      category: 'cloud',
-      progress: 75,
-    },
-    {
-      topic: 'Arquitetura de Microsserviços',
-      description:
-        'Estudando padrões de arquitetura distribuída, comunicação entre serviços e deploy com Docker e Kubernetes.',
-      category: 'devops',
-      progress: 40,
-    },
-    {
-      topic: 'Azure Cloud Services',
-      description:
-        'Estudando os serviços da Microsoft Azure e suas aplicações em cloud computing.',
-      category: 'cloud',
-      progress: 25,
-    },
-    {
-      topic: 'Power Platform Avançado',
-      description:
-        'Explorando Power Apps, Power BI e integrações avançadas com Power Automate e Dataverse.',
-      category: 'automation',
-      progress: 60,
-    },
-    {
-      topic: 'Java e Spring',
-      description:
-        'Estudando Java e Spring: Realizando processamento em lote com Spring Batch pela Alura.',
-      category: 'backend',
-      progress: 50,
-    },
-  ];
+export class Studies implements OnInit {
+  studies: CurrentStudy[] = [];
+  
+  private studyService = inject(StudyService);
+
+  ngOnInit(): void {
+    this.studyService.getStudies().subscribe({
+      next: (dados) => this.studies = dados,
+      error: (erro) => console.error("Erro ao carregar estudos", erro)
+    });
+  }
 }

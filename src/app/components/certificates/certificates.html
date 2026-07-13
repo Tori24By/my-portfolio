@@ -4,7 +4,7 @@
     <p class="section-subtitle">Cursos e certificações que conquistei</p>
 
     <div class="certificates-grid">
-      @for (cert of certificates; track cert.title) {
+      @for (cert of certificates; track cert.pk_certificate) {
         <div class="cert-card" (click)="openCertificate(cert)">
           <div class="cert-header">
             <span class="cert-category">{{ cert.category | uppercase }}</span>
@@ -14,7 +14,7 @@
           </div>
           <h3 class="cert-title">{{ cert.title }}</h3>
           <p class="cert-issuer">{{ cert.issuer }}</p>
-          <p class="cert-date">{{ cert.issueDate }}</p>
+          <p class="cert-date">{{ cert.start_date }} à {{ cert.end_date }}</p>
           <span class="cert-view-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
             Ver Certificado
@@ -47,7 +47,7 @@
             </div>
             <div class="cert-modal-info-item">
               <span class="cert-modal-label">Data</span>
-              <span class="cert-modal-value">{{ selectedCert.issueDate }}</span>
+              <span class="cert-modal-value">{{ selectedCert.start_date }} à {{ selectedCert.end_date }}</span>
             </div>
             @if (selectedCert.hours) {
               <div class="cert-modal-info-item">

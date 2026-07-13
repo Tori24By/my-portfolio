@@ -1,10 +1,11 @@
 export interface Certificate {
-  id?: number;
+  pk_certificate?: number;
+  category: string;
   title: string;
   issuer: string;
-  issueDate: string;
+  start_date: string;
+  end_date: string;
   credentialUrl?: string;
   imageUrl?: string;
-  category: 'frontend' | 'backend' | 'database' | 'cloud' | 'automation' | 'other';
   hours?: number;
 }

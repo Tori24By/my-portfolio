@@ -1,26 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
+import { CertificateService } from '../../services/certificate.service';
 import { Certificate } from '../../models/certificate.model';
 
 @Component({
   selector: 'app-certificates',
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe], 
   templateUrl: './certificates.html',
   styleUrl: './certificates.scss',
 })
-export class Certificates {
+export class Certificates implements OnInit { 
+  
   selectedCert: Certificate | null = null;
+  
+  certificates: Certificate[] = [];
 
-  certificates: Certificate[] = [
-    {
-      imageUrl: 'https://i.ibb.co/C3Y6XX6S/cpa-10.png',
-      title: 'CPA-10',
-      issuer: 'ANBIMA',
-      issueDate: '09/02/2024 à 09/02/2029',
-      category: 'other',
-      hours: undefined,
-    },
-  ];
+  private certificateService = inject(CertificateService);
+
+  ngOnInit(): void {
+    this.carregarCertificados();
+  }
+
+  // Função que busca os dados na API
+  carregarCertificados(): void {
+    this.certificateService.getCertificates().subscribe({
+      next: (dados) => {
+        this.certificates = dados;
+        console.log("Certificados carregados da API com sucesso!", dados);
+      },
+      error: (erro) => {
+        console.error("Ops, falha ao conectar na API", erro);
+      }
+    });
+  }
+
 
   openCertificate(cert: Certificate): void {
     this.selectedCert = cert;

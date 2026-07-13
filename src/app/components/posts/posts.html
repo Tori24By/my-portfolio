@@ -4,20 +4,22 @@
     <p class="section-subtitle">Artigos e conteúdos que compartilhei com a comunidade</p>
 
     <div class="posts-grid">
-      @for (post of posts; track post.title) {
+      @for (post of posts; track post.pk_post) {
         <article class="post-card">
           <div class="post-meta">
             <span class="post-platform">{{ getPlatformIcon(post.platform) }} {{ post.platform }}</span>
-            <span class="post-date">{{ post.publishedAt }}</span>
+            <span class="post-date">{{ post.publish_date }}</span>
           </div>
           <h3 class="post-title">{{ post.title }}</h3>
-          <p class="post-summary">{{ post.summary }}</p>
+          <p class="post-summary">{{ post.description }}</p>
+          
           <div class="post-tags">
-            @for (tag of post.tags; track tag) {
-              <span class="post-tag">{{ tag }}</span>
+            @for (tag of post.tags; track tag.pk_tag) {
+              <span class="post-tag">{{ tag.tag_name }}</span>
             }
           </div>
-          <a [href]="post.url" target="_blank" rel="noopener" class="post-link">
+          
+          <a [href]="post.url_link" target="_blank" rel="noopener" class="post-link">
             Ler no {{ post.platform }} →
           </a>
         </article>
